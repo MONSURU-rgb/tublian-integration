@@ -3,9 +3,89 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --dark-grey: #1e1e1e;
+  --gradient-2: linear-gradient(
+    109deg,
+    #fbda61 0%,
+    rgba(255, 90, 205, 0.84) 86.08%
+  );
+}
+
+.proPlan {
+  border-radius: 10px;
+  border: 1px solid #b29bf3;
+  background: linear-gradient(180deg, #855fef 0%, #5435aa 100%);
+}
+
+.businessPlan {
+  border-radius: 10px;
+  border: 1px solid #79bbff;
+  background: linear-gradient(180deg, #0881ff 0%, #0b4f95 100%);
+}
+
+.enterprisePlan {
+  border-radius: 10px;
+  border: 1px solid #22bfd6;
+  background: linear-gradient(180deg, #068092 0%, #043b43 100%);
+}
+
+.setUp {
+  border-radius: 20px;
+  border: 1px solid #292929;
+  background: #1e1e1e;
+}
+.setUp:hover {
+  border-radius: 20px;
+  border: 1px solid #292929;
+  background: #292929;
+}
+.setUpWithGradient {
+  border-radius: 20px;
+  border: 1px solid #fbda61;
+  background: #1e1e1e;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar-track {
+  display: none !important;
+}
+
+.OAUth2-signup:hover,
+.OAUth2-signup:active,
+.payment {
+  background-image: linear-gradient(
+    109deg,
+    #fbda61 0%,
+    rgba(255, 90, 205, 0.84) 86.08%
+  );
+
+  box-shadow: none !important;
+}
+
+.active-plan {
+  border-radius: 20px;
+  border: 1px solid #fbda61 !important;
+  background: #1e1e1e !important;
+  font: "Space Grotesk";
+}
+
+.OAUth2-signup {
+  box-shadow: 0 0 2px rgba(255, 90, 205, 0.84), 0 0 2px rgba(245, 158, 11, 1);
+}
+
+.action-button {
+  @apply bg-primary-gold-300 w-full py-2 px-4 hover:bg-primary-gold-200 active:bg-primary-gold-100 rounded-[30px] font-grotesk text-base font-medium max-w-[405px];
+}
+
+.OAUth2-signup {
+  @apply max-w-[405px] font-grotesk rounded-[72px] px-2 py-3 w-full flex text-base-900-dark justify-center gap-2 border border-transparent active:bg-[var(--gradient-2)] active:border-none items-center;
+}
+
+.header-gradient {
+  @apply bg-gradient-to-r from-yellow-400 to-pink-500  bg-clip-text text-transparent;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,14 +94,4 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
