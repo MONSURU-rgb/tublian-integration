@@ -157,7 +157,7 @@ export function FirstOnboarding() {
                     className={clsx(
                       "pr-14 pt-14 pb-5 pl-5 flex flex-col gap-18 justify-between mobile:flex-row",
                       choice.id === checkedChoice
-                        ? "setUpWithGradient"
+                        ? "signup !rounded-[20px]"
                         : "setUp"
                     )}
                     onClick={() => setCheckedChoice(choice.id)}>
