@@ -50,9 +50,9 @@ export function FirstOnboarding() {
           className={clsx(
             "w-1/2 min-h-full bg-no-repeat bg-cover bg-bottom flex-1 grid py-18 mobile:hidden",
             active < 3
-              ? `${backgroundImages.at(
-                  active - 1
-                )} lg:bg-[url('/first-onboarding-bg-1200.png')] md:bg-[url('/first-onboarding-bg-1024.png')]`
+              ? `${backgroundImages.at(active - 1)}`
+              : active === 1
+              ? "lg:bg-[url('/first-onboarding-bg-1200.png')] md:bg-[url('/first-onboarding-bg-1024.png')]"
               : ""
           )}>
           {active === 2 ? (
@@ -69,7 +69,7 @@ export function FirstOnboarding() {
                 src="/user-image.png"
                 alt="user image"
                 fill
-                className="!relative !w-[553px] !h-[350px] self-center justify-self-center"
+                className="!relative !w-[553px] !h-[350px] self-center justify-self-center lg:w-full"
               />
               <Image
                 src="/dddraw.png"
@@ -92,7 +92,7 @@ export function FirstOnboarding() {
             ? "w-1/2 px-10 lg:pl-[52px] lg:pr-0 md:pl-7 mobile:w-full sm:pl-4"
             : "w-full pr-[103px] pl-[108px]"
         )}>
-        <nav className="flex gap-5 items-center justify-between sticky top-0 bg-[#121212] pt-68 lg:pt-10 lg:flex-col lg:gap-3 lg:items-start lg:pr-[39px] sm:pr-4 flex-wrap">
+        <nav className="flex gap-5 items-center justify-between sticky top-0 bg-[#121212] pt-68 lg:pt-10 lg:flex-col lg:gap-3 lg:items-start lg:pr-[39px] mobile:pt-5 mobile:pr-4 flex-wrap backdrop-opacity-90">
           <Image
             src="Tublian-logo.svg"
             alt="Tublian Logo"
@@ -134,127 +134,10 @@ export function FirstOnboarding() {
             nextStep={nextStep}
           />
         ) : active === 2 ? (
-          <div className="flex flex-col flex-1 pb-12">
-            <div className="pt-11 font-grotesk flex flex-col gap-7 flex-1">
-              <article className="flex flex-col gap-14">
-                <h2 className="text-4xl/144 font-bold text-base-900-dark font-grotesk">
-                  Create Account
-                </h2>
-
-                <h3 className="text-base-800-dark text-base font-medium">
-                  Creating account for{" "}
-                  <span className="text-[#4BA3FF]">@John Doe</span>
-                </h3>
-              </article>
-
-              <section className="flex flex-col gap-14">
-                <form className="max-w-[405px] flex flex-col gap-7">
-                  <section className="flex flex-col gap-14">
-                    <TextInput
-                      type="email"
-                      placeholder="Email"
-                      styles={inputStyles}
-                      rightSection={
-                        UserDetailsForm.values.email.length > 4 ? (
-                          <TickCircle size="24" color="#76F368" />
-                        ) : UserDetailsForm.values.email.length >= 1 &&
-                          UserDetailsForm.values.email.length <= 4 ? (
-                          <InfoCircle size="24" color="#F26663" />
-                        ) : null
-                      }
-                      {...UserDetailsForm.getInputProps("email")}
-                    />
-
-                    <div className=" flex flex-col gap-2">
-                      <TextInput
-                        placeholder="Password"
-                        styles={inputStyles}
-                        {...UserDetailsForm.getInputProps("password")}
-                      />
-
-                      <section className="flex gap-x-6 gap-y-2 flex-wrap">
-                        <article className="flex gap-2 items-center">
-                          <TickCircle
-                            size="14"
-                            color={
-                              UserDetailsForm.values.password.length >= 8
-                                ? "#76F368"
-                                : "#414141"
-                            }
-                          />
-                          <p className="text-base-500-dark text-[12px]/[16px] font-normal font-grotesk">
-                            8 Characters minimum
-                          </p>
-                        </article>
-                        <article className="flex gap-2 items-center">
-                          <TickCircle
-                            size="14"
-                            color={
-                              /[A-Z]/.test(UserDetailsForm.values.password)
-                                ? "#76F368"
-                                : "#414141"
-                            }
-                          />
-                          <p className="text-base-500-dark text-[12px]/[16px] font-normal font-grotesk">
-                            One uppercase character
-                          </p>
-                        </article>
-                        <article className="flex gap-2 items-center">
-                          <TickCircle
-                            size="14"
-                            color={
-                              /[!@#$%^&*(),.?":{}|<>]/.test(
-                                UserDetailsForm.values.password
-                              )
-                                ? "#76F368"
-                                : "#414141"
-                            }
-                          />
-                          <p className="text-base-500-dark text-[12px]/[16px] font-normal font-grotesk">
-                            One symbol character
-                          </p>
-                        </article>
-                      </section>
-                    </div>
-                  </section>
-
-                  <button className="action-button" onClick={nextStep}>
-                    Create Account
-                  </button>
-                </form>
-
-                <article className="flex gap-2 items-center max-w-[405px]">
-                  <span className="h-[1px] bg-[#414141] flex-1"></span>
-                  <span className="text-base-700-dark-tertiary font-grotesk text-sm font-medium">
-                    Or
-                  </span>
-                  <span className="h-[1px] bg-[#414141] flex-1"></span>
-                </article>
-
-                <button className="OAUth2-signup">
-                  <Image
-                    src="/google-logo.svg"
-                    alt="Google Logo"
-                    width={24}
-                    height={24}
-                  />
-
-                  <p>Sign up with Google</p>
-                </button>
-              </section>
-
-              <h3 className="text-base-700-dark-tertiary text-base">
-                Already have an account?{" "}
-                <span className="text-base-900-dark">Log in</span>
-              </h3>
-            </div>
-            <footer>
-              <ul className="flex gap-5 font-grotesk text-base text-base-700-dark-tertiary">
-                <li>Privacy Policy</li>
-                <li>Terms</li>
-              </ul>
-            </footer>
-          </div>
+          <CreateAccountPage
+            UserDetailsForm={UserDetailsForm}
+            nextStep={nextStep}
+          />
         ) : active === 3 ? (
           <div className="pt-10 flex items-center justify-center gap-10 flex-col">
             <article className="flex flex-col gap-14 items-center">
@@ -928,6 +811,7 @@ import { useForm } from "@mantine/form";
 import { checkoutPageData, paymentPlansData } from "@/data";
 import { useDisclosure } from "@mantine/hooks";
 import { GetStartedPage } from "./get-started";
+import { CreateAccountPage } from "./create-account";
 
 function Demo() {
   const [active, setActive] = useState(1);
