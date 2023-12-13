@@ -114,7 +114,7 @@ export function PaymentForm({
 
       <button
         className="action-button !max-w-full"
-        type="submit"
+        type="button"
         onClick={() => {
           setIsSuccessOpened(!isSuccessOpened);
         }}>
