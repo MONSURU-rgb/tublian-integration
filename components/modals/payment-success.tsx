@@ -7,15 +7,17 @@ export function PaymentSuccessModal({
   openedModal,
   openSuccessModal,
   closeSuccessModal,
+  isOpened,
 }: {
-  openedModal: boolean;
-  openSuccessModal: () => void;
+  openedModal?: boolean;
+  openSuccessModal?: () => void;
   closeSuccessModal: () => void;
+  isOpened: boolean;
 }) {
   const { active, setActive } = useContext(ActiveContext);
   return (
     <Modal
-      opened={openedModal}
+      opened={isOpened}
       onClose={closeSuccessModal}
       size={580}
       withCloseButton={false}
@@ -47,9 +49,9 @@ export function PaymentSuccessModal({
 
         <button
           className="action-button mx-5 mb-5 !max-w-[540px]"
-          type="submit"
+          type="button"
           onClick={() => {
-            closeSuccessModal();
+            // closeSuccessModal();
             setActive(1);
           }}>
           Proceed

@@ -17,8 +17,6 @@ export function PaymentPage({
   setActivePlan: Dispatch<SetStateAction<string>>;
 }) {
   const [opened, { open, close }] = useDisclosure(false);
-  const [openedModal, { open: openSuccessModal, close: closeSuccessModal }] =
-    useDisclosure(false);
 
   return (
     <>
