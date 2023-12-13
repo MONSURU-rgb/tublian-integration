@@ -1,9 +1,10 @@
-import { Modal, TextInput } from "@mantine/core";
+import { Modal, TextInput, clsx } from "@mantine/core";
 import Image from "next/image";
 import { CardCheckedState, CardUncheckedState, GooglePay, Stripe } from "..";
 import { Card } from "iconsax-react";
 import { useForm } from "@mantine/form";
 import { PaymentForm } from "../payment-form";
+import { useState } from "react";
 
 export function PaymentTypePage({
   opened,
@@ -23,6 +24,8 @@ export function PaymentTypePage({
       cvv: "",
     },
   });
+
+  const [choosenPayment, setChoosenPayment] = useState("credit");
   return (
     <Modal.Root
       opened={opened}
@@ -62,11 +65,11 @@ export function PaymentTypePage({
 
             <div className="py-14 rounded-[10px] bg-base-100-dark border border-[#414141] flex flex-col gap-14">
               <article className="flex justify-between items-center pb-14 border-b border-[#414141] px-5">
-                <h3 className="text-base-900-dark font-grotesk text-xl/[160%] font-bold">
+                <h3 className="text-base-900-dark font-grotesk text-xl/[160%] mobileSm:text-lg font-bold">
                   Monthly Plan
                 </h3>
 
-                <span className="text-primary-gold-300 font-grotesk text-base font-medium">
+                <span className="text-primary-gold-300 font-grotesk text-base mobileSm:text-sm font-medium">
                   Change Plan
                 </span>
               </article>
@@ -76,7 +79,7 @@ export function PaymentTypePage({
               </span>
 
               <section className="flex justify-between items-center px-5">
-                <span className="font-grotesk text-[20px]/[30px] font-medium text-base-900-dark">
+                <span className="font-grotesk text-[20px]/[30px] font-medium text-base-900-dark mobileSm:text-base">
                   Total:
                 </span>
 
@@ -85,10 +88,10 @@ export function PaymentTypePage({
                     USD
                   </span>
                   <article>
-                    <span className="font-grotesk text-base-900-dark text-3xl/[150%] font-bold">
+                    <span className="font-grotesk text-base-900-dark text-3xl/[150%] font-bold mobileSm:text-xl/[160%]">
                       $49.99
                     </span>
-                    <span className="text-base-700-dark-tertiary font-grotesk text-[18px]/[30px] font-medium">
+                    <span className="text-base-700-dark-tertiary font-grotesk text-[18px]/[30px] font-medium mobileSm:text-sm">
                       /Month
                     </span>
                   </article>
@@ -108,8 +111,19 @@ export function PaymentTypePage({
               </article>
 
               <div className="flex flex-col gap-3">
-                <section className="px-5 py-14 flex gap-5 items-center setUpWithGradient">
-                  <CardCheckedState />
+                <section
+                  className={clsx(
+                    "px-5 py-14 flex gap-5 items-center",
+                    choosenPayment === "credit"
+                      ? "signup !rounded-[10px]"
+                      : "setUp"
+                  )}
+                  onClick={() => setChoosenPayment("credit")}>
+                  {choosenPayment === "credit" ? (
+                    <CardCheckedState />
+                  ) : (
+                    <CardUncheckedState />
+                  )}
                   <article className="flex gap-14 items-center">
                     <Card size="24" color="#FEFEFE" />
 
@@ -118,8 +132,19 @@ export function PaymentTypePage({
                     </span>
                   </article>
                 </section>
-                <section className="px-5 py-14 flex gap-5 setUp">
-                  <CardUncheckedState />
+                <section
+                  className={clsx(
+                    "px-5 py-14 flex gap-5 items-center",
+                    choosenPayment === "google card"
+                      ? "signup !rounded-[10px]"
+                      : "setUp"
+                  )}
+                  onClick={() => setChoosenPayment("google card")}>
+                  {choosenPayment === "google card" ? (
+                    <CardCheckedState />
+                  ) : (
+                    <CardUncheckedState />
+                  )}
                   <GooglePay />
                 </section>
               </div>

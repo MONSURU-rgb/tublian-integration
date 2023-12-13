@@ -48,7 +48,7 @@ export function PaymentSuccessModal({
         </article>
 
         <button
-          className="action-button mx-5 mb-5 !max-w-[540px]"
+          className="success-action-button mx-5 mb-5 !max-w-[540px]"
           type="button"
           onClick={() => {
             // closeSuccessModal();

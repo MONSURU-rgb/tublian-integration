@@ -30,7 +30,7 @@
 }
 
 .setUp {
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid #292929;
   background: #1e1e1e;
 }
@@ -76,11 +76,17 @@
   box-shadow: 0 0 2px rgba(255, 90, 205, 0.84), 0 0 2px rgba(245, 158, 11, 1);
 }
 .signup {
-  box-shadow: 0 0 2px rgba(255, 90, 205, 0.84), 0 0 2px rgba(245, 158, 11, 1);
+  box-shadow: 0 0 2px rgba(255, 90, 205, 0.84), 0 0 2px rgba(245, 158, 11, 0.8);
 }
 
+.circle {
+  clip-path: circle();
+}
 .action-button {
   @apply bg-primary-gold-300 w-full py-2 px-4 hover:bg-primary-gold-200 active:bg-primary-gold-100 rounded-[30px] font-grotesk text-base font-medium max-w-[405px];
+}
+.success-action-button {
+  @apply bg-primary-gold-300 py-2 px-4 hover:bg-primary-gold-200 active:bg-primary-gold-100 rounded-[30px] font-grotesk text-base font-medium max-w-[405px];
 }
 
 .OAUth2-signup {

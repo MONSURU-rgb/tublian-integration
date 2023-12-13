@@ -47,8 +47,8 @@ export function AccountSetUpPage({
                     className={clsx(
                       "rounded-full bg-[#1E1E1E] border border-[#292929] self-end mobile:self-center",
                       choice.title === "Personal Projects"
-                        ? "w-5 h-[22px]"
-                        : "w-5 h-6 mobile:h-[22px]"
+                        ? "w-6 h-6 circle"
+                        : "w-6 h-6 circle"
                     )}></span>
                 )}
 
