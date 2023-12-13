@@ -16,6 +16,7 @@ const config: Config = {
       lg: { max: "1200px" },
       md: { max: "1024px" },
       mobile: { max: "700px" },
+      mobileSm: { max: "500px" },
       sm: { max: "390px" },
     },
     extend: {

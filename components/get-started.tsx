@@ -21,11 +21,11 @@ export function GetStartedPage({
     <div className="flex flex-col flex-1 pb-12 lg:pb-4 md:pb-10">
       <section className="pt-11 lg:pt-10 font-grotesk flex md:pt-5 flex-col gap-7 flex-1 mobile:pr-7 sm:pt-5">
         <article className="flex flex-col gap-14 lg:gap-2">
-          <h2 className="text-4xl/144 font-bold text-base-900-dark font-grotesk">
+          <h2 className="text-4xl/144 font-bold text-base-900-dark font-grotesk mobile:text-lg">
             Get Started
           </h2>
 
-          <h3 className="text-base-800-dark text-base font-normal">
+          <h3 className="text-base-800-dark text-base font-medium mobile:text-sm">
             Start recruiting streetcred developers, Today!!
           </h3>
         </article>
