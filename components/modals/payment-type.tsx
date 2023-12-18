@@ -110,7 +110,7 @@ export function PaymentTypePage({
                 </span>
               </article>
 
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 z-10">
                 <section
                   className={clsx(
                     "px-5 py-14 flex gap-5 items-center",

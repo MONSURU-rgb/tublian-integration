@@ -1,19 +1,6 @@
-import Image from "next/image";
-import {
-  ActiveContext,
-  CardCheckedState,
-  CardUncheckedState,
-  Express,
-  GooglePay,
-  Mastercard,
-  Stripe,
-  Visa,
-} from "@/components";
-
+import { ActiveContext } from "@/components";
 import { useContext, useState } from "react";
-import { Stepper, Flex, clsx, TextInput, Modal, Overlay } from "@mantine/core";
-import { ArrowDown2, Card, InfoCircle, Lock1, TickCircle } from "iconsax-react";
-import { inputStyles } from "./input-styles";
+import { Flex, clsx } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { GetStartedPage } from "./get-started";
@@ -32,10 +19,6 @@ export function FirstOnboarding() {
   const { active, setActive } = useContext(ActiveContext);
   const [checkedChoice, setCheckedChoice] = useState(1);
   const [paymentDuration, setPaymentDuration] = useState("Monthly");
-  const [opened, { open, close }] = useDisclosure(false);
-  const [openedModal, { open: openSuccessModal, close: closeSuccessModal }] =
-    useDisclosure(false);
-
   const [activePlan, setActivePlan] = useState("Business Plan");
 
   const UserDetailsForm = useForm<IUserDetailsForm>({

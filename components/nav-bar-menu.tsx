@@ -12,29 +12,37 @@ export function NavBarMenu() {
         width={122}
         height={25}
       />
-      <ul className="flex gap-3 font-grotesk text-sm font-medium cursor-pointer whitespace-nowrap flex-wrap">
+      <ul className="flex gap-3 font-grotesk text-sm font-medium whitespace-nowrap flex-wrap">
         <li
-          className={`${active >= 1 ? "header-gradient" : ""}`}
+          className={`${
+            active >= 1 ? "header-gradient cursor-pointer" : "cursor-pointer"
+          }`}
           onClick={() => setActive(1)}>
           1: Get Started
         </li>
         <li
           className={`${
-            active >= 2 ? "header-gradient" : "text-base-300-dark"
+            active >= 2
+              ? "header-gradient cursor-pointer "
+              : "text-base-300-dark cursor-pointer"
           }`}
           onClick={() => setActive(2)}>
           2: Create Account
         </li>
         <li
           className={`${
-            active >= 3 ? "header-gradient" : "text-base-300-dark"
+            active >= 3
+              ? "header-gradient cursor-pointer"
+              : "text-base-300-dark cursor-pointer"
           }`}
           onClick={() => setActive(3)}>
           3: Account Setup
         </li>
         <li
           className={`${
-            active >= 4 ? "header-gradient" : "text-base-300-dark"
+            active >= 4
+              ? "header-gradient cursor-pointer"
+              : "text-base-300-dark cursor-pointer"
           }`}
           onClick={() => setActive(4)}>
           4: Payment
